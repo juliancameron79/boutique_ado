@@ -110,19 +110,19 @@ a.category-badge > span.badge:hover {
   cursor: pointer;
 }
 
-input[name='9']::-webkit-input-placeholder {
+input[name='q']::-webkit-input-placeholder {
   color: #aab7c4;
 }
 
-input[name='9']:-ms-input-placeholder {
+input[name='q']:-ms-input-placeholder {
   color: #aab7c4;
 }
 
-input[name='9']::-ms-input-placeholder {
+input[name='q']::-ms-input-placeholder {
   color: #aab7c4;
 }
 
-input[name='9']::placeholder {
+input[name='q']::placeholder {
   color: #aab7c4;
 }
 
