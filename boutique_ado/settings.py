@@ -29,7 +29,7 @@ SECRET_KEY = 'q-js=kp0k1!3vee3)*07b0c!4l8ev5#w@c1v)q21lpg6%ou1pz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'c5eb9829d6ee.ngrok.io', '127.0.0.1', 'a0d789024352.ngrok.io']
+ALLOWED_HOSTS = ['localhost', 'c5eb9829d6ee.ngrok.io', '127.0.0.1', 'a0d789024352.ngrok.io','jc79-boutique-ado.herokuapp.com']
 
 
 # Application definition
@@ -122,16 +122,17 @@ WSGI_APPLICATION = 'boutique_ado.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
-
-# DATABASES = {
-#     'default': dj_database_url.parse('postgres://fevxtmocvcuioi:205e09c2bd7919a0424d67194818f8f9fd64eb495ed2a2b03f85f5ebc9ad1256@ec2-54-247-71-245.eu-west-1.compute.amazonaws.com:5432/ddeden0a7pcts6')
-# }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation
